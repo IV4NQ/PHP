@@ -11,6 +11,7 @@
 <h1>Witaj na mojej stronie</h1>
 <hr>
 <?php
+    echo "<b>Witaj świcie</b>";
     echo "<b>Witaj świcie</b>"
 
 
