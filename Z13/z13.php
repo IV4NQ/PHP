@@ -5,23 +5,21 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ZADANIE</title>
+    <title>z_13 trygonometria</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
-    <h1>Zadanie </h1>
+    <h1>Zadanie 13</h1>
     <h2>Autor: Łukasz Iwaniec</h2>
     <hr>
 </header>
 <section>
-    <p>TRESC</p>
-    <form action="" method="post">
-        <label for="a">Podaj a:</label>
-        <input type="number" id="a" name="a" step="0.01">
-
-        <label for="b">Podaj b:</label>
-        <input type="number" id="b" name="b" step="0.01">
+    <p>Napisz program, który Dla danego x będącego liczbą rzeczywistą oblicza wartość wyrażenia </p>
+    <img src="image006.png">
+    <form action="z13w.php" method="post">
+        <label for="x">Podaj x:</label>
+        <input type="text" id="x" name="x">
 
         <input type="submit" value="Wyślij">
     </form>

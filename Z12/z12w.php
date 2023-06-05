@@ -14,16 +14,27 @@
     $min = $_POST['min'];
     $max = $_POST['max'];
     if($min > $max || $min < 0){
-        echo "Program nie spełnia wymagań min < max lub min > 0";
+        echo "<h1>Program nie spełnia wymagań min < max lub min > 0 </h1>";
     } else {
         $tab[] = 0;
         for($i = 0; $i<5; $i++) {
             $tab[$i] = rand($min, $max);
             }
     }
+    $suma = 0;
+    $iloczyn = 1;
+    $srednia = 0;
+    echo "Liczby: ";
     for($i = 0; $i<5; $i++) {
-        echo "$tab[$i]  ";
+        echo "$tab[$i], ";
+        $suma += $tab[$i];
+        $iloczyn *= $tab[$i];
+        $srednia += $tab[$i];
     }
+    $srednia = $srednia/5;
+    echo "<br> suma: $suma <br>";
+    echo "iloczyn: $iloczyn <br>";
+    echo "srednia: $srednia <br>";
     ?>
 </section>
 </body>
