@@ -11,13 +11,60 @@
 $paczkow = $_POST['paczkow'];
 $grzebieni = $_POST['grzebieni'];
 $gabki = $_POST['gabki'];
-$promocja_paczki = floor($paczkow/3);
+$promocja_paczki = floor($paczkow / 3);
 $paczkiPoPromce = $paczkow - $promocja_paczki;
+//losowa promocja
+$los_promocja = (max($paczkow, $grzebieni, $gabki) / 2);
+$losowaWartoscPromocji = rand(1, $los_promocja);
+$suma = 0;
+$sumarabatow = 0;
+
+$sumaProduktow = $paczkow + $grzebieni + $gabki;
 
 
-$suma = 0.99 * $paczkiPoPromce + 1.29 * $grzebieni + 1.79 * $gabki;
+
+if ($paczkow == $los_promocja * 2) {
+    $suma = (0.99 * $paczkiPoPromce + 1.29 * $grzebieni + 1.79 * $gabki) - $losowaWartoscPromocji * 0.99;
+    $sumarabatow = $losowaWartoscPromocji * 0.99;
+} else if ($grzebieni == $los_promocja * 2) {
+    $suma = (0.99 * $paczkiPoPromce + 1.29 * $grzebieni + 1.79 * $gabki) - $losowaWartoscPromocji * 1.29;
+    $sumarabatow = $losowaWartoscPromocji * 1.29;
+} else if ($gabki == $los_promocja * 2) {
+    $suma = (0.99 * $paczkiPoPromce + 1.29 * $grzebieni + 1.79 * $gabki) - $losowaWartoscPromocji * 1.79;
+    $sumarabatow = $losowaWartoscPromocji * 1.79;
+}
+$sumarabatow += $paczkiPoPromce;
+
+function liczbapierwsza($int) {
+    $i = 2;
+    while($i < $int) {
+        if($int % $i == 0) {
+            return false;
+        }
+
+        $i++;
+    }
+
+    return true;
+}
+
+if(liczbapierwsza($sumaProduktow) == true){
+$suma *= 0.9;
+$sumarabatow += $suma * 0.1;
+}
+
+
+
+
+$dostawa1 = $_GET['dostawa'];
+$dostawa2 =  $HTTP_GET_VARS['dostawa'];
+
+echo "$dostawa1 - 1; $dostawa2 - 2";
+
+$suma = round($suma, 2);
+$sumarabatow = round($sumarabatow,2);
+
 $dorosly = isset($_POST['dorosly']);
-
 if ($dorosly == true) {
     echo <<<END
 
@@ -35,6 +82,9 @@ if ($dorosly == true) {
 	</tr>
 	<tr>
 		<td>SUMA</td> <td>$suma PLN</td>
+	</tr>	
+	<tr>
+		<td>SUMA RABATOW</td> <td>$sumarabatow PLN</td>
 	</tr>	
 	</table>
 	<br /><a href="index.php">Powrót do strony głównej</a>
