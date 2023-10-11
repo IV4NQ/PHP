@@ -22,7 +22,6 @@ $sumarabatow = 0;
 $sumaProduktow = $paczkow + $grzebieni + $gabki;
 
 
-
 if ($paczkow == $los_promocja * 2) {
     $suma = (0.99 * $paczkiPoPromce + 1.29 * $grzebieni + 1.79 * $gabki) - $losowaWartoscPromocji * 0.99;
     $sumarabatow = $losowaWartoscPromocji * 0.99;
@@ -35,10 +34,11 @@ if ($paczkow == $los_promocja * 2) {
 }
 $sumarabatow += $paczkiPoPromce;
 
-function liczbapierwsza($int) {
+function liczbapierwsza($int)
+{
     $i = 2;
-    while($i < $int) {
-        if($int % $i == 0) {
+    while ($i < $int) {
+        if ($int % $i == 0) {
             return false;
         }
 
@@ -48,21 +48,45 @@ function liczbapierwsza($int) {
     return true;
 }
 
-if(liczbapierwsza($sumaProduktow) == true){
-$suma *= 0.9;
-$sumarabatow += $suma * 0.1;
+if (liczbapierwsza($sumaProduktow) == true) {
+    $suma *= 0.9;
+    $sumarabatow += $suma * 0.1;
+}
+$dostawa = "Nie zaznaczono";
+
+$dostawaOdbior = isset($_POST['dostawaOdbior']);
+$dostawaKurier = isset($_POST['dostawaKurier']);
+$dostawaPaczkomat = isset($_POST['dostawaPaczkomat']);
+if ($dostawaOdbior == true) {
+    $dostawa = "Odbiór osobisty";
+} else if ($dostawaKurier == true) {
+    $dostawa = "Kurier + 10.49 PLN";
+    $suma += 10.49;
+} else if ($dostawaPaczkomat == true) {
+    $dostawa = "Paczkomat + 8.39 PLN";
+    $suma += 8.39;
+}
+$dodatki = "Brak dodatków";
+$KolPapier = isset($_POST['KolPapier']);
+$wstazka = isset($_POST['wstazka']);
+$zloty_nadruk = isset($_POST['zloty_nadruk']);
+
+if ($KolPapier == true) {
+    $dodatki = "Kolorowy papier";
+    $suma += 1.5;
+}
+if ($wstazka == true) {
+    $dodatki = "wstążka";
+    $suma += 0.89;
+}
+if ($zloty_nadruk == true) {
+    $dodatki = "Złoty nadruk";
+    $suma += 2.39;
 }
 
 
-
-
-$dostawa1 = $_GET['dostawa'];
-$dostawa2 =  $HTTP_GET_VARS['dostawa'];
-
-echo "$dostawa1 - 1; $dostawa2 - 2";
-
 $suma = round($suma, 2);
-$sumarabatow = round($sumarabatow,2);
+$sumarabatow = round($sumarabatow, 2);
 
 $dorosly = isset($_POST['dorosly']);
 if ($dorosly == true) {
@@ -85,6 +109,12 @@ if ($dorosly == true) {
 	</tr>	
 	<tr>
 		<td>SUMA RABATOW</td> <td>$sumarabatow PLN</td>
+	</tr>	
+	<tr>
+		<td>Dostawa</td> <td>$dostawa</td>
+	</tr>	
+	<tr>
+		<td>Dodatki</td> <td>$dodatki</td>
 	</tr>	
 	</table>
 	<br /><a href="index.php">Powrót do strony głównej</a>
