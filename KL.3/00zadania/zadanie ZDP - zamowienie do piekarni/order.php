@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <title>Podsumowanie zamówienia</title>
+    <link rel="stylesheet" href="style2.css">
 </head>
 
 <body>
@@ -66,21 +67,21 @@ if ($dostawaOdbior == true) {
     $dostawa = "Paczkomat + 8.39 PLN";
     $suma += 8.39;
 }
-$dodatki = "Brak dodatków";
+$dodatki = "";
 $KolPapier = isset($_POST['KolPapier']);
 $wstazka = isset($_POST['wstazka']);
 $zloty_nadruk = isset($_POST['zloty_nadruk']);
 
 if ($KolPapier == true) {
-    $dodatki = "Kolorowy papier";
+    $dodatki .= "<br>Kolorowy papier (+1.50 PLN)";
     $suma += 1.5;
 }
 if ($wstazka == true) {
-    $dodatki = "wstążka";
+    $dodatki .= "<br>wstążka (+0.89 PLN)";
     $suma += 0.89;
 }
 if ($zloty_nadruk == true) {
-    $dodatki = "Złoty nadruk";
+    $dodatki .= "<br>Złoty nadruk (+2.39 PLN)";
     $suma += 2.39;
 }
 
@@ -105,16 +106,16 @@ if ($dorosly == true) {
 		<td> <img src="gabki.png" width="50px" height="50px" /> </td> <td>Gąbki (1.79PLN/szt)</td> <td>$gabki szt</td>
 	</tr>
 	<tr>
-		<td>SUMA</td> <td>$suma PLN</td>
+		<td>SUMA</td> <td colspan="2">$suma PLN</td>
 	</tr>	
 	<tr>
-		<td>SUMA RABATOW</td> <td>$sumarabatow PLN</td>
+		<td>SUMA RABATOW</td> <td colspan="2">$sumarabatow PLN</td>
 	</tr>	
 	<tr>
-		<td>Dostawa</td> <td>$dostawa</td>
+		<td>Dostawa</td> <td colspan="2">$dostawa</td>
 	</tr>	
 	<tr>
-		<td>Dodatki</td> <td>$dodatki</td>
+		<td>Dodatki</td> <td colspan="2">$dodatki</td>
 	</tr>	
 	</table>
 	<br /><a href="index.php">Powrót do strony głównej</a>

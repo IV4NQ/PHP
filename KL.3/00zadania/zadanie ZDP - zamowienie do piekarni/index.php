@@ -12,6 +12,7 @@
 <p>Przy zamówieniu 3 pączków płacisz za dwa.</p>
 <p>Dostajesz losową promocję za produkt którego jest najwięcej (losowa liczba darmowych produktów)</p>
 <p>Jeżeli ilość zamówionych produktów jest liczbą pierwszą otrzymujesz rabat 10%</p>
+<p>Autor: Łukasz Iwaniec 3ip_02</p>
 <form action="order.php" method="post">
     <hr>
     <h3>Produkty</h3>
@@ -28,9 +29,10 @@
     <input type="checkbox" name="dorosly">
     <br/>
     <hr>
+
     <h3>Sposób dostawy (zaznacz jedno)</h3>
     Odbiór osobisty (darmowe)
-    <input type="checkbox"  name="dostawaOdbior" value="0">
+    <input type="checkbox" name="dostawaOdbior" value="0">
     <br/><br/>
     Kurier (10.49 PLN)
     <input type="checkbox" name="dostawaKurier" value="10.49">
@@ -39,12 +41,13 @@
     <input type="checkbox" name="dostawaPaczkomat" value="8.39">
     <br/><br/>
     <hr>
+
     <h3>Dodatki</h3>
     Opakowanie kolorowym papierem (+1.50 PLN)
-    <input type="checkbox"  name="KolPapier">
+    <input type="checkbox" name="KolPapier">
     <br/><br/>
     Wstazka na pudełku (+0.89 PLN)
-    <input type="checkbox" name="wstazka" >
+    <input type="checkbox" name="wstazka">
     <br/><br/>
     Złoty nadruk (+2.39 PLN)
     <input type="checkbox" name="zloty_nadruk">
