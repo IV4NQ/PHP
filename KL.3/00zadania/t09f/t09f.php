@@ -20,8 +20,8 @@
 
 <?php
 
-function generujUnikalnaLiczbe(&$uzyteLiczby)
-{
+function generujUnikalnaLiczbe(&$uzyteLiczby){
+
     do {
         $liczba = mt_rand(10, 99);
     } while (in_array($liczba, $uzyteLiczby));
