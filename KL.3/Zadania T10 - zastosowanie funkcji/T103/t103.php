@@ -22,14 +22,15 @@
     </tr>
 </table>
 <hr>
-<h3>T101</h3>
-<p>Napisz funkcję, która dla podanej liczby zwraca (return) jej wartość bezwzględną i zastosuj tę funkcję do
-    wyświetlenia wyniku. Do obliczenia wartości bezwzględnej użyj instrukcji warunkowej (wariant 1) i operatora
-    warunkowego "?" (wariant 2).</p>
+<h3>T103</h3>
+<p>Napisz funkcję, która dla podanej liczby całkowitej w zakresie od 1 do 12 zwraca nazwę miesiąca w języku polskim. W
+    przypadku podania innej wartości zwraca informację o błędzie.</p>
 
 <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
     <label for="a">Podaj liczbę całkowitą: </label>
     <input type="number" id="a" name="a">
+    <label for="n">Podaj potęge: </label>
+    <input type="number" id="n" name="n">
 
 
     <input type="submit" value="Wyślij">
@@ -38,22 +39,19 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-$a = $_POST['a'];
+    $a = $_POST['a'];
+    $n = $_POST['n'];
 
-function bezwzgledna1($a){
-    if($a < 0){
-        return $a*-1;
-    } else {
-        return $a;
+    function potega(&$a, &$n)
+    {
+        $wyn = 1;
+        for ($i = 0; $i < $n; $i++) {
+            $wyn *= $a;
+        }
+        return $wyn;
     }
-}
-function bezwzgledna2($a){
-    $a = ($a>0)?$a:$a*-1;
-    return $a;
-}
-echo "bezwzgledna funkcja nr 1: ".bezwzgledna1($a);
-echo "<br>";
-echo "bezwzgledna funkcja nr 2: ".bezwzgledna2($a);
+
+    echo "$a<sup>$n</sup> wynosi " . potega($a, $n);
 }
 ?>
 </body>
