@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>T101</title>
 </head>
 <body>
 <table>
@@ -22,11 +22,11 @@
     </tr>
 </table>
 <hr>
-<h3>T101</h3>
+<h2>Zadanie T101</h2>
 <p>Napisz funkcję, która dla podanej liczby zwraca (return) jej wartość bezwzględną i zastosuj tę funkcję do
     wyświetlenia wyniku. Do obliczenia wartości bezwzględnej użyj instrukcji warunkowej (wariant 1) i operatora
     warunkowego "?" (wariant 2).</p>
-
+<br><br>
 <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
     <label for="a">Podaj liczbę całkowitą: </label>
     <input type="number" id="a" name="a">
@@ -38,22 +38,26 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-$a = $_POST['a'];
+    $a = $_POST['a'];
 
-function bezwzgledna1($a){
-    if($a < 0){
-        return $a*-1;
-    } else {
+    function bezwzgledna1($a)
+    {
+        if ($a < 0) {
+            return $a * -1;
+        } else {
+            return $a;
+        }
+    }
+
+    function bezwzgledna2($a)
+    {
+        $a = ($a > 0) ? $a : $a * -1;
         return $a;
     }
-}
-function bezwzgledna2($a){
-    $a = ($a>0)?$a:$a*-1;
-    return $a;
-}
-echo "bezwzgledna funkcja nr 1: ".bezwzgledna1($a);
-echo "<br>";
-echo "bezwzgledna funkcja nr 2: ".bezwzgledna2($a);
+
+    echo "bezwzgledna funkcja nr 1: " . bezwzgledna1($a);
+    echo "<br>";
+    echo "bezwzgledna funkcja nr 2: " . bezwzgledna2($a);
 }
 ?>
 </body>

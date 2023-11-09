@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
-    <title>T102</title>
+    <title>T105</title>
 </head>
 <body>
 <table>
@@ -18,22 +18,20 @@
     <tr>
         <td>Łukasz Iwaniec</td>
         <td>3ip_02</td>
-        <td>2.11.2023</td>
+        <td>9.11.2023</td>
     </tr>
 </table>
 <hr>
-<h2>T102</h2>
-<p>Napisz funkcję, której wynikiem będzie podniesienie wartości przekazanego jej poprzez referencję argumentu do potęgi
-    przekazanej również jako argument. Funkcja zwraca wartość i wyświetla wynik w postaci (np. dla wartości 2 i 3):
-    <br>x = 2
-    <br>y = 3
-    <br>x<sup>y</sup>=2<sup>3</sup>=8</p>
+<h2>T105</h2>
+<p>Napisz funkcję, która dla dwóch liczb całkowitych wyświetla ich wspólny dzielnik (przypomnij sobie algorytm
+    Euklidesa).</p>
 <br><br>
 <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
-    <label for="a">Podaj liczbę całkowitą: </label>
+    <label for="a">Podaj liczbę a: </label>
     <input type="number" id="a" name="a">
-    <label for="n">Podaj potęge: </label>
-    <input type="number" id="n" name="n">
+    <label for="b">Podaj liczbe b:: </label>
+    <input type="number" id="b" name="b">
+
 
     <input type="submit" value="Wyślij">
 </form>
@@ -42,20 +40,19 @@
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $a = $_POST['a'];
-    $n = $_POST['n'];
+    $b = $_POST['b'];
 
-    function potega(&$a, &$n)
-    {
-        $wyn = 1;
-        for ($i = 0; $i < $n; $i++) {
-            $wyn *= $a;
+    function nwd($a, $b) {
+        while ($b<>0) {
+            $c = $a;
+            $a = $b;
+            $b = $c%$b;
         }
-        return $wyn;
+        return $a;
     }
 
-    echo "a = $a<br>";
-    echo "n = $n<br>";
-    echo "$a<sup>$n</sup> = " . potega($a, $n);
+    echo "Wspólny dzielnik $a oraz $b wynosi:" . nwd($a, $b);
+
 }
 ?>
 </body>

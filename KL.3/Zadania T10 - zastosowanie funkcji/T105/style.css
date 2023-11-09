@@ -1,4 +1,22 @@
 td,table {
     border: solid 1px black;
     border-collapse: collapse;
+    background-color: white;
+}
+table {
+    width: 20em;
+    height: 5em;
+    align-content: center;
+    margin: auto;
+}
+* {
+    text-align: center;
+    align-content: center;
+    background-color: lightgray;
+}
+input {
+    background-color: palevioletred;
+}
+p {
+    font-size: 18px;
 }
