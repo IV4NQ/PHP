@@ -29,32 +29,27 @@
     Dana jest tablica tab zawierająca liczby oraz liczba m o określonej wartości.
 
     <br>Napisz funkcję, która
-<ul>
-    <li>wyświetli tablicę w formie tabeli HTML,</li>
-    <li>przemnoży wszystkie elementy tablicy tab przez czynnik m.</li>
-    <li>zamieni wszystkie elementy w tablicy równe 0 na 1.</li>
-</ul>
+
+    wyświetli tablicę w formie tabeli HTML,
+    przemnoży wszystkie elementy tablicy tab przez czynnik m.
+    zamieni wszystkie elementy w tablicy równe 0 na 1.
+
 <br>Zademonstruj działanie funkcji w programie.
 
 </p>
 <br><br>
 <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
-    <label for="a">Podaj liczbe a: </label>
-    <input type="number" id="a" name="a">
-    <label for="b">Podaj liczbe b: </label>
-    <input type="number" id="b" name="b">
 
-
-    <input type="submit" value="Wyślij">
+    <input type="submit" value="URUCHOM">
 </form>
-
+<br>
 
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $tab = [1, 5, 4, 2, 6, 7, 1, 3, 5, 6, 1, 2, 6, 7, 1, 2, 4, 5];
+    $tab = [1, 5, 4, 2, 6, 0, 1, 3, 5, 6, 1, 2, 6, 7, 1, 2, 4, 5];
 
-    function wyswietlTablice(&$tab)
+    function wyswietlTablice($tab)
     {
         echo "<table>";
         foreach ($tab as $i => $value) {
@@ -72,14 +67,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         return $tab;
     }
 
-//    function sprawdz(&$tab)
-//    {
-//        $n = count($tab);
-//        for ($i = 0; $i < $n; $i++) {
-//            if ($tab[$i] == 0) {
-//                $tab[$i] = 1}
-//        }
-//    }
+    function zamien(&$tab)
+    {
+        $n = count($tab);
+        for ($i = 0; $i < $n; $i++) {
+            if ($tab[$i] == 0) {
+                $tab[$i] = 1;
+            }
+        }
+    }
+
+    wyswietlTablice($tab);
+    pomnoz($tab,6);
+    wyswietlTablice($tab);
+    zamien($tab);
+    wyswietlTablice($tab);
 
 }
 ?>
