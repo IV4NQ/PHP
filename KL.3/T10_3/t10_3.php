@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
-    <title>T13_3</title>
+    <title>T10_3</title>
 </head>
 <body>
 <table>
@@ -18,14 +18,12 @@
     <tr>
         <td>Łukasz Iwaniec</td>
         <td>3ip_02</td>
-        <td>9.11.2023</td>
+        <td>15.11.2023</td>
     </tr>
 </table>
 <hr>
 <h2>T10_3</h2>
 <p>
-
-
     Dana jest tablica tab zawierająca liczby oraz liczba m o określonej wartości.
 
     <br>Napisz funkcję, która
@@ -34,7 +32,7 @@
     przemnoży wszystkie elementy tablicy tab przez czynnik m.
     zamieni wszystkie elementy w tablicy równe 0 na 1.
 
-<br>Zademonstruj działanie funkcji w programie.
+    <br>Zademonstruj działanie funkcji w programie.
 
 </p>
 <br><br>
@@ -47,7 +45,7 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $tab = [1, 5, 4, 2, 6, 0, 1, 3, 5, 6, 1, 2, 6, 7, 1, 2, 4, 5];
+    $tab = [1, 5, 4, 2, 6, 0, 1, 3, 5, 6, 1, 2, 6, 7, 1, 2, 4, 0];
 
     function wyswietlTablice($tab)
     {
@@ -77,10 +75,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
+    echo "Podstawowa tablica:";
     wyswietlTablice($tab);
-    pomnoz($tab,6);
+    pomnoz($tab, 6);
+    echo "Pomnożona tablica";
     wyswietlTablice($tab);
     zamien($tab);
+    echo "Zamienione liczby 0 na 1 w tablicy";
     wyswietlTablice($tab);
 
 }
