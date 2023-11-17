@@ -42,8 +42,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $miesiac = 11;
     $rok = 2011;
 
+    function wpisanaData($dzien, $miesiac, $rok){
+        echo "Data, którą wpisałeś:" . "<br>";
+        echo "Dzień - $dzien". "<br>";
+        echo "Miesiąc - $miesiac". "<br>";
+        echo "Rok - $rok". "<br>";
+    }
+
     function sprawdzajDate($miesiac, $dzien, $rok)
     {
+
         if (checkdate($miesiac, $dzien, $rok)) {
             $data = mktime(0, 0, 0, $miesiac, $dzien, $rok);
             $dzis = mktime(0, 0, 0, date("m"), date("d"), date("y"));
@@ -56,7 +64,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo 'Data jest niepoprawna';
         }
     }
-
+    wpisanaData($dzien, $miesiac, $rok);
+    echo "<br><br>";
     sprawdzajDate($miesiac, $dzien, $rok);
 
 
