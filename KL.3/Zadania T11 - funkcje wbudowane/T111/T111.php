@@ -38,12 +38,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $tab = array(1,5,4,6,8,3,2,5,6,7,2,3,5,6,2);
 
+    function wyswietlTablice($tab){
+        echo "Podstawowa tablica:" . "<br>";
+        foreach ($tab as $el){
+            echo "$el, ";
+        }
+    }
     function dodajNajmniejszeLiczby($tab){
         sort($tab);
         $suma = $tab[0] + $tab[1];
-        echo "$suma";
+        return $suma;
     }
-    dodajNajmniejszeLiczby($tab);
+    wyswietlTablice($tab);
+    echo "<br>";
+    echo "<br>Suma dwóch najmniejszych liczb: ". dodajNajmniejszeLiczby($tab);
 
 }
 ?>

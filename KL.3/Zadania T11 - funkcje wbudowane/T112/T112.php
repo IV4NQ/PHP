@@ -38,6 +38,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $tab = array("Eliza", "Jakub", "Amelia", "Kuba", "Barnaba", "Jerzy", "Karolina", "Zbyszek","Wacława");
 
+    function wyswietlTablice($tab){
+        echo "Podstawowa tablica:" . "<br>";
+        foreach ($tab as $el){
+            echo "$el, ";
+        }
+    }
+
     function iloscKobiet($tab)
     {
         $pom = 0;
@@ -50,6 +57,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
         echo "Ilość imion żeńskich: $pom";
     }
+    wyswietlTablice($tab);
+    echo "<br><br>";
 iloscKobiet($tab);
 
 
