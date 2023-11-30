@@ -36,6 +36,13 @@
 
 $plik = file('napisy.txt');
 
+$i = 1;
+foreach ($plik as $el){
+    $pom = bindec($el);
+    echo "$i - $el - $pom<br>";
+    $i++;
+}
+
 ?>
 </body>
 </html>
