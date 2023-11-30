@@ -31,17 +31,23 @@
 
 
 touch('narodoweCzytanie.txt');
-$p=fopen('narodoweCzytanie.txt','w');
+$p = fopen('narodoweCzytanie.txt', 'w');
 fwrite($p, "W TYM ROKU NARODOWE CZYTANIE POD HONOROWYM PATRONATEM PARY PREZYDENCKIEJ ODBĘDZIE SIĘ 08.09.2018 R. W STULECIE ODZYSKANIA NIEPODLEGŁOŚCI WYBRANO POWIEŚĆ STEFANA ŻEROMSKIEGO „PRZEDWIOŚNIE”. 
 WŁĄCZAJĄC SIĘ DO OGÓLNOPOLSKIEJ AKCJI, ZAPRASZAMY DO WSPÓLNEGO CZYTANIA W NASZEJ SZKOLE W PRZEDDZIEŃ TEGO WYDARZENIA 07.09.2018 R. 
 NA DRUGIEJ GODZINIE LEKCYJNEJ W AULI SZKOLNEJ. CZYTAĆ BĘDĄ UCZNIOWIE KLASY 2M.
 FORMUŁA SPOTKANIA NIE JEST ZAMKNIĘTA – KAŻDY MOŻE PRZYŁĄCZYĆ SIĘ DO CZYTANIA LUB SŁUCHANIA.");
+fclose($p);
 
-while(!feof($p)) {
-    $linia = fgets($p);
-    $zawartosc .= $linia;
+
+if (!$p = fopen('narodoweCzytanie.txt', 'r')) {
+    echo "Nie można otworzyć pliku dane.txt";
+} else {
+    while (!feof($p)) {
+        $w = fgets($p, 255);
+        echo "$w<br>";
+    }
+    fclose($p);
 }
-echo $zawartosc;
 
 
 ?>
