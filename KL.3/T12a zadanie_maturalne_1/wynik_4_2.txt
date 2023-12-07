@@ -1,0 +1,2 @@
+Liczba z największą ilością czynników pierwszych: 99792 (ilość: 10)
+Liczba z największą ilością różnych czynników pierwszych: 62790 (ilość: 6)
