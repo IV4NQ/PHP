@@ -36,7 +36,6 @@
                 <textarea id="opis" name="opis" rows="4" cols="50">Nie więcej niż 300 znaków</textarea>
             </section>
         </fieldset>
-
 </section>
 
 <h2>Zaprojektuj własne trampki</h2>
@@ -103,7 +102,7 @@
         </section>
     </fieldset>
     <input type="submit" value="Podrasuj swoje buty">
-    </form>
+
 </section>
 
 <section>
