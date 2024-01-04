@@ -115,7 +115,7 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    // Retrieve and display data from text input
+
     $imie = $_POST['imie'];
     echo "<b>Imię i nazwisko: </b>" . $imie . "<br>";
 
@@ -128,11 +128,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $opis = $_POST['opis'];
     echo "<b>Opis butów: </b>" . $opis . "<br>";
 
-    // Retrieve and display data from radio buttons
     $color = isset($_POST['color']) ? $_POST['color'] : "";
     echo "<b>Kolor butów: </b>" . $color . "<br>";
 
-    // Retrieve and display data from checkboxes
     $sznurowki = isset($_POST['sznurowki']) ? "Tak" : "Nie";
     echo "<b>Błyszczące sznurówki: </b>" . $sznurowki . "<br>";
 
@@ -145,7 +143,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $mp3 = isset($_POST['MP3']) ? "Tak" : "Nie";
     echo "<b>Odtwarzanie MP3: </b>" . $mp3 . "<br>";
 
-    // Retrieve and display data from select dropdown
     $rozmiar = $_POST['rozmiar'];
     echo "<b>Rozmiar: </b>" . $rozmiar . "<br>";
 }
