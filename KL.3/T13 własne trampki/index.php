@@ -12,6 +12,7 @@
 </header>
 
 <h2>Formularz konkursu "Podrasuj swoje buty!"</h2>
+
 <p id="top">Chcesz zamienić swoje stare trampki na nową parę zaprojektowanych przez siebie butóe Fordefield? Napisz nam,
     dalczego
     sądzisz, że powinieneś pożeganć się ze swoimi wysłużonymi butami, a być może zostaniesz jednym z laureatów
@@ -102,13 +103,9 @@
         </section>
     </fieldset>
     <input type="submit" value="Podrasuj swoje buty">
-
 </section>
-
-<section>
     <br>
 
-</section>
 
 
 <?php
