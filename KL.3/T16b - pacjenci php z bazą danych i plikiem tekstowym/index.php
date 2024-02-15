@@ -2,22 +2,25 @@
 
 $db = mysqli_connect("localhost", "root", "", "3pir_2_pacjenci");
 
-$file = fopen("dane.txt" ,"r");
+$file = fopen("dane.txt", "r");
 if (!$file) {
-    die("Błąd podczas otwierania pliku pracownicy.txt");
+    die("Błąd podczas otwierania pliku dane.txt");
 }
-    while(!feof($file)) {
-        $line = fgets($file);
-        $data = explode(",", $line);
-        $ID = trim($data[0]);
-        $imie = trim($data[1]);
-        $nazwisko = trim($data[2]);
-        $email = trim($data[3]);
+$i = 0;
+while (!feof($file)) {
+    $line = fgets($file);
+    $data = explode(",", $line);
+    $ID = trim($data[0]);
+    $imie = trim($data[1]);
+    $nazwisko = trim($data[2]);
+    $email = trim($data[3]);
 
-        $sql = "INSERT INTO tabela_1 (ID, imie, nazwisko, email) VALUES ('$ID', '$imie', '$nazwisko', '$email')";
-        mysqli_query($db, $sql);
-    }
-    fclose($file);
+    $sql = "INSERT INTO tabela_1 (ID, imie, nazwisko, email) VALUES ('$ID', '$imie', '$nazwisko', '$email')";
+    mysqli_query($db, $sql);
+    $i++;
+}
+fclose($file);
+
 
 //CREATE TABLE tabela_1 (
 //    ID int(5) ,
@@ -26,11 +29,7 @@ if (!$file) {
 //    email varchar(75)
 //);
 
-
-
-
 mysqli_close($db);
-
 
 
 ?>
@@ -48,13 +47,24 @@ mysqli_close($db);
 <body>
 <h2>Autor: Łukasz Iwaniec 3ip_2</h2>
 <hr>
-<p>
-
-</p>
-<hr>
 <br>
-
 <?php
+$db = mysqli_connect("localhost", "root", "", "3pir_2_pacjenci");
+
+$result = $db->query("SELECT * FROM tabela_1");
+
+if ($result->num_rows > 0) {
+    echo "<table border='1'><tr><th>ID</th><th>Imię</th><th>Nazwisko</th><th>email</th></tr>";
+
+    while ($row = $result->fetch_assoc()) {
+        echo "<tr><td>" . $row["ID"] . "</td><td>" . $row["imie"] . "</td><td>" . $row["nazwisko"] . "</td><td>" . $row["email"] . "</td></tr>";
+    }
+    echo "</table>";
+} else {
+    echo "Brak danych do wyświetlenia";
+}
+
+mysqli_close($db);
 
 ?>
 </body>
