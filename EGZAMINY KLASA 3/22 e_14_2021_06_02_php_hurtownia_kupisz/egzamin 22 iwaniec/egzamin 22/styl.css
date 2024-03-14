@@ -1,0 +1,59 @@
+#baner{
+    background-color: #A61C2E;
+    height: 70px;
+    font-size: 110%;
+    text-align: center;
+}
+#lewy{
+    background-color: #A61C2E;
+    height: 550px;
+    width: 35%;
+    font-size: 110%;
+    text-align: center;
+    float: left;
+}
+#srodek{
+    background-color: #4D524A;
+    height: 550px;
+    width: 30%;
+    text-align: center;
+    float: left;
+}
+#prawo{
+    background-color: #A61C2E;
+    height: 550px;
+    width: 35%;
+    font-size: 110%;
+    text-align: right;
+    float: right;
+}
+#stopka{
+    background-color: #A61C2E;
+    height: 70px;
+    text-align: right;
+    clear: both;
+}
+table{
+    margin-left: 150px;
+    border-collapse: collapse;
+}
+tr,td{
+    border: blue dotted 2px;
+    padding: 10px;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 110%;
+}
+tr:hover{
+    color: blue;
+}
+img{
+    margin-top: 80px;
+}
+h4{
+    color: white;
+    margin-top: 80px;
+}
+input {
+    margin-top: 5px;
+}
